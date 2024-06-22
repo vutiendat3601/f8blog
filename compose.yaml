@@ -1,0 +1,19 @@
+name: f8blog
+services:
+  mongodb:
+    image: mongodb/mongodb-community-server:7.0-ubi8
+    ports:
+      - 27017:27017
+    networks:
+      - default
+    volumes:
+      - mongodb-data:/data/db
+
+volumes:
+  mongodb-data:
+    name: mongodb-data
+    driver: local
+networks:
+  default:
+    name: f8blog
+    driver: bridge
